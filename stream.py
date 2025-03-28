@@ -6,7 +6,7 @@ import streamlit as st
 df = sns.load_dataset('titanic')
 
 st.title('Titanic Dataset Visualization')
-sel = st.sidebar.radio('Display DataFrame', ('Yes', 'No'))
+sel = st.sidebar.radio('Display DataFrame', ('Yes', 'No'),index=1)
 
 if sel =='Yes':
     st.table(df)
