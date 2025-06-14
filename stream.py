@@ -49,14 +49,14 @@ gender = st.sidebar.radio('Gender Based survival ',('Male', 'Female'))
 
 if gender == 'Male':
     male = df[df['sex'] == 'male']
-    st.write("\n Gender Bsed Survival (Male Survival)")
+    st.write("\n\n\n Gender Bsed Survival (Male Survival)")
     fig, ax = plt.subplots()
     ax = sns.countplot(x='class', hue='survived', data=male)
     st.pyplot(fig)
 
 else:
     female = df[df['sex'] == 'female']
-    st.write(" \n Gender Based Survival (Female Survival) ")
+    st.write(" \n\n\n\n Gender Based Survival (Female Survival) ")
     fig, ax = plt.subplots()
     ax = sns.countplot(x='class', hue='survived', data=female)
     st.pyplot(fig)
