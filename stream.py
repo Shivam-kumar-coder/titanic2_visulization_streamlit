@@ -12,6 +12,8 @@ if sel =='Yes':
     st.table(df)
 else:
     st.write('DataFrame not displayed.')
+
+st.write('MAle % Female survival Multi Plots')
 plot_type = st.sidebar.radio('MAle % Female survival Multi Plots',('bar','line','hist','box','kde'))
 
 if plot_type == 'bar':
