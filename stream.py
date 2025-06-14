@@ -18,13 +18,13 @@ gender = st.sidebar.radio('Select Gender',('Male', 'Female'))
 if gender == 'Male':
     male = df[df['sex'] == 'male']
     fig, ax = plt.subplots()
-    ax = sns.countplot(x='class', hue='survived', data=male)
+    ax = sns.countplot(x='class', hue='survived-male', data=male)
     st.pyplot(fig)
 
 else:
     female = df[df['sex'] == 'female']
     fig, ax = plt.subplots()
-    ax = sns.countplot(x='class', hue='survived', data=female)
+    ax = sns.countplot(x='class', hue='survived-female', data=female)
     st.pyplot(fig)
 
 
