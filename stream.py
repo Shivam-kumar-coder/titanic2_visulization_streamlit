@@ -12,8 +12,40 @@ if sel =='Yes':
     st.table(df)
 else:
     st.write('DataFrame not displayed.')
+plot_type = st.sidebar.radio('MAle % Female survival Multi Plots',('bar','line','hist','box','kde'))
 
-gender = st.sidebar.radio('Select Gender',('Male', 'Female'))
+if plot_type == 'bar':
+    st.write('Bar plot')
+    fig, ax = plt.subplots()
+    df.groupby(['class', 'sex'])['survived'].mean().unstack().plot(kind='bar',ax=ax)
+    st.pyplot(fig)
+
+
+elif plot_type == 'line':
+    st.write('Line plot')
+    fig, ax = plt.subplots()
+    df.groupby(['class', 'sex'])['survived'].mean().unstack().plot(kind='line',ax=ax)
+    st.pyplot(fig)
+
+elif plot_type == 'hist':
+    st.write('Hist plot')
+    fig, ax = plt.subplots()
+    df.groupby(['class', 'sex'])['survived'].mean().unstack().plot(kind='hist',ax=ax)
+    st.pyplot(fig)
+
+elif plot_type == 'box':
+    st.write('Box plot')
+    fig, ax = plt.subplots()
+    df.groupby(['class', 'sex'])['survived'].mean().unstack().plot(kind='box',ax=ax)
+    st.pyplot(fig)
+
+else:
+    st.write('Kde plot')
+    fig, ax = plt.subplots()
+    df.groupby(['class', 'sex'])['survived'].mean().unstack().plot(kind='kde',ax=ax)
+    st.pyplot(fig)
+
+gender = st.sidebar.radio('Gender Based survival ',('Male', 'Female'))
 
 if gender == 'Male':
     male = df[df['sex'] == 'male']
